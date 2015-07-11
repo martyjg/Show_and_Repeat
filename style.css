@@ -1,0 +1,9 @@
+#chainDisplay {
+	background-color: cyan;
+	width: 150px;
+	height: 150px;
+	font-family: Verdana;
+	font-size: 40px
+	text-align: center;
+	color: black;
+}
