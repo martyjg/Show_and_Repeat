@@ -35,8 +35,9 @@ $(document).ready(function () {
 	displayMoveChain = function(chain) {
 		chain.forEach(function(element, index) {
 			setTimeout(function(){
-				$("#chainDisplay").html(element);
+				$("#chainDisplay").show().html(element).fadeOut('slow');
 			}, 1000 * (index+1));
+
 		})
 	}
 
