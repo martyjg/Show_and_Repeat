@@ -56,11 +56,10 @@ body {
 	color: black;
 }
 
-#player1Dancer {
+.player1Move, .throwLeft, .throwUp, .throwRight, .throwDown {
 	position: absolute;
 	top: 65px;
 	left: 40px;
-	background-image: url(positionDefault.gif);
 	width: 250px;
 	height: 250px;
 	overflow: hidden;
@@ -68,6 +67,26 @@ body {
 	background-position: center;
 	background-color: white;
 	border: 3px solid black;
+}
+
+.player1Move {
+	background-image: url(positionDefault.gif);
+}
+
+.throwLeft {
+	background-image: url(positionLeft.gif);
+}
+
+.throwUp {
+	background-image: url(positionUp.gif);
+}
+
+.throwRight {
+	background-image: url(positionRight.gif);
+}
+
+.throwDown {
+	background-image: url(positionDown.gif);
 }
 
 #buttonDisplay {

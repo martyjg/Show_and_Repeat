@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 	firstChain = [];
 	secondChain = [];
-	moveCount = 3;
+	moveCount = 10;
 	turn = 0;
 	playerTurn = 0;
 	player1Score = 0;
@@ -81,12 +81,16 @@ $(document).ready(function () {
 		$(document).keydown(function(key) {
 			if (chain.length < moveCount) {
 				if (key.keyCode === 37) { 
+					$("#player1Dancer").attr("class", "throwLeft");
 					chain.push("&larr;");
 				} else if (key.keyCode === 38) {
+					$("#player1Dancer").attr("class", "throwUp");
 					chain.push("&uarr;");
 				} else if (key.keyCode === 39) {
+					$("#player1Dancer").attr("class", "throwRight");
 					chain.push("&rarr;");
 				} else if (key.keyCode === 40) {
+					$("#player1Dancer").attr("class", "throwDown");
 					chain.push("&darr;");
 				}
 				console.log("The chain is " + chain)
@@ -97,13 +101,11 @@ $(document).ready(function () {
 	displayMoveChain = function(chain) {
 		chain.forEach(function(element, index) {
 			setTimeout(function(){
-				if (element === "&larr;") {
-					$(".player1Move").attr("class", "throwLeft")
-				}
 				$("#chainDisplay").show().html(element).fadeOut('slow');
 			}, 1000 * (index+1));
 
 		})
+		$("#player1Dancer").attr("class", "player1Move");
 	}
 
 	clearDisplay = function() {
