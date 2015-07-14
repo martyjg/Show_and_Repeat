@@ -17,28 +17,56 @@ var moveCounter = 3;
 var player1Chain = [];
 var player2Chain = [];
 
-	//chain about to be displayed
-	var currentChain = player1Chain;
+var matchedMoves = 0;
+
+var player1Score = 0;
+var player2Score = 0;
+$("#p1Score").html(player1Score);
+$("#p2Score").html(player2Score);
+
+//chain about to be displayed
+var currentChain = player1Chain;
 
 //allows for pause during movesDisplay
 var playing = true;
 
-	//keeps track of no. of turns switched
-	var switchedTurns = 0;
+//keeps track of no. of turns switched
+var switchedTurns = 0;
 
+$("#messageBox").html(currentPlayer + ", what you got?")
 
-//chnages dacning animation according to current player when buttons are pushede
+//changes dancing animation according to current player when buttons are pushede
 function throwMove(move) {
 	if (!playing) return;
 
 	if (currentPlayer === 'player1') {
-		player1Dancer.attr('class', 'throw' + move);
 		player1Chain.push(move);
+		if (move === '&larr;') {
+			move = 'left';
+		} else if (move === '&uarr;') {
+			move = 'up';
+		} else if (move === '&rarr;') {
+			move = 'right';
+		} else if (move === '&darr;') {
+			move = 'down';
+		}
+		player1Dancer.attr('class', 'throw' + move);
+
 
 	} if (currentPlayer === 'player2') {
-		player2Dancer.attr('class', 'throw' + move);
 		player2Chain.push(move);
+		if (move === '&larr;') {
+			move = 'left';
+		} else if (move === '&uarr;') {
+			move = 'up';
+		} else if (move === '&rarr;') {
+			move = 'right';
+		} else if (move === '&darr;') {
+			move = 'down';
+		}
+		player2Dancer.attr('class', 'throw' + move);
 	}
+
 	if (currentChain.length === moveCounter) {
 		if (switchedTurns % 2 !== 0) {
 			checkForMatch();
@@ -47,16 +75,19 @@ function throwMove(move) {
 			displayMoves();
 			playing = false; }
 		}
-		console.log(player1Chain);
-		console.log(player2Chain);
-		console.log(currentPlayer);
-		console.log(moveCounter);
-		console.log(currentChain);
-		console.log(playing);
-		console.log(switchedTurns);
 	}
 
+
 	function displayMoves() {
+		debugger
+		console.log("the current player is " + currentPlayer);
+		if (currentPlayer === "player1") {
+		$("#messageBox").html("player2, check it out");
+	} 
+		else {
+		$("#messageBox").html("player1, check it out");
+	}
+
 		currentChain.forEach(function(element, index) {
 			setTimeout(function(){
 
@@ -65,44 +96,56 @@ function throwMove(move) {
 				if (index === currentChain.length - 1) {
 					switchPlayers();
 				}
-
 			}, 1000 * (index+1));
 		});
-
 	}
 
+
 	function checkForMatch() {
-		for (var i = 0; i < player1Chain.length; i++) {
-			if (player1Chain[i] !== player2Chain[i]) {
-				resetGame();
+		N = player1Chain.length
+		for (var i = 0; i < N; i++) {
+			if (player1Chain[i] === player2Chain[i]) {
+				matchedMoves++;
+			} 
+		}
+		if (matchedMoves === N) {
+			moveCounter++
+			switchedTurns = 0;
+			matchedMoves = 0; 
+			$("#messageBox").html(currentPlayer + " nailed it. Step it up.")
+			if (currentPlayer === 'player1') {
+				player2Chain = [];
 			} else {
-				moveCounter++
-				switchedTurns = 0; 
-				if (currentPlayer === 'player1') {
-					player2Chain = [];
-				} else {
-					player1Chain = [];
-				}
+				player1Chain = [];
 			}
+		} else {
+			matchedMoves = 0;
+			if (currentPlayer === 'player1') {
+				player2Score++;
+			} else { 
+				player1Score++;
+			}
+			$("#p1Score").html(player1Score);
+			$("#p2Score").html(player2Score);
+			resetGame();
 		}
 	}
 
+
 	function resetGame() {
-		debugger
 
-		var currentPlayer = 'player1';
+		moveCounter = 3; 
 
-		var moveCounter = 3; 
+		player1Chain = [];
+		player2Chain = [];
 
-		var player1Chain = [];
-		var player2Chain = [];
+		playing = true;
 
-		var currentChain = player1Chain;
 
-		var playing = true;
-
-		var switchedTurns = 0;
+		switchPlayers();
+		switchedTurns = 0;
 	}
+
 
 	function switchPlayers() {
 		playing = true;
@@ -126,20 +169,15 @@ function throwMove(move) {
 
 	$(document).keydown(function(key) {
 		if (key.keyCode === 37) { 
-			throwMove('Left');
+			throwMove('&larr;');
 		} else if (key.keyCode === 38) {
-			throwMove('Up');
+			throwMove('&uarr;');
 		} else if (key.keyCode === 39) {
-			throwMove('Right');
+			throwMove('&rarr;');
 		} else if (key.keyCode === 40) {
-			throwMove('Down');
+			throwMove('&darr;');
 		}
 	});
-
-
-
-
-
 }
 
 

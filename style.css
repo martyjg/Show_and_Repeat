@@ -65,12 +65,9 @@ body {
 	border: 3px solid black;
 }
 
-
-
 .currentPlayer {
-	border: 5px solid pink;
+	border: 10px solid pink;
 }
-
 
 #player1 {
 	top: 65px;
@@ -94,19 +91,19 @@ body {
 	background-image: url(positionDefault.gif);
 }
 
-.throwLeft {
+.throwleft {
 	background-image: url(positionLeft.gif);
 }
 
-.throwUp {
+.throwup {
 	background-image: url(positionUp.gif);
 }
 
-.throwRight {
+.throwright {
 	background-image: url(positionRight.gif);
 }
 
-.throwDown {
+.throwdown {
 	background-image: url(positionDown.gif);
 }
 
@@ -114,14 +111,14 @@ body {
 	background-color: green;
 }
 
-#buttonDisplay {
+#messageBox {
 	position: absolute;
-	top: 81%; left: 50%;
+	top: 85%; left: 50%;
 	transform: translate(-50%,-50%);
 	text-align: center;
 	margin: auto;
 	background-color: green;
-	width: 320px;
+	width: 420px;
 	height: 30px;
 	border: 3px solid black;
 }
