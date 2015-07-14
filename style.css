@@ -124,7 +124,7 @@ h1 {
 	left: 40px;
 }
 
-#player2{
+#player2 {
 	top: 65px;
 	right: 40px;
 }
@@ -162,6 +162,8 @@ h1 {
 }
 
 #messageContainer {
+	border-left: 10px solid black;
+	border-top: 10px solid black;
 	position: absolute;
 	top: 85%; left: 50%;
 	transform: translate(-50%,-50%);

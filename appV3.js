@@ -15,7 +15,7 @@ var player2Dancer = $("#player2 > div");
 //player currently in play
 var currentPlayer = 'player1';
 player1Container.addClass('currentPlayer')
-var moveCounter = 3; 
+var moveCounter = 32; 
 
 
 
@@ -133,7 +133,7 @@ function throwMove(move) {
 				if (index === currentChain.length - 1) {
 					switchPlayers();
 				}
-			}, 1150 * (index+1));
+			}, 500 * (index+1));
 		});
 	}
 
