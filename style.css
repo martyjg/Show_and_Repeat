@@ -11,6 +11,7 @@
 }
 
 body {
+	background-color: rgb(57, 254, 57);
 	-webkit-font-smoothing: none;
 	image-rendering: pixelated;
 	font-family: vcr_osd_monoregular;
@@ -40,6 +41,7 @@ body {
 }
 
 #container {
+	box-shadow: 10px 10px 5px black;
 	position: relative;
 	margin: auto;
 	background-color: rgb(160, 170, 160);
