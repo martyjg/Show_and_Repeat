@@ -56,20 +56,41 @@ body {
 	color: black;
 }
 
-.player1Move, .throwLeft, .throwUp, .throwRight, .throwDown {
+.player {
 	position: absolute;
-	top: 65px;
-	left: 40px;
 	width: 250px;
 	height: 250px;
 	overflow: hidden;
-	background-size: cover;
-	background-position: center;
-	background-color: white;
+	
 	border: 3px solid black;
 }
 
-.player1Move {
+
+
+.currentPlayer {
+	border: 5px solid pink;
+}
+
+
+#player1 {
+	top: 65px;
+	left: 40px;
+}
+
+#player2{
+	top: 65px;
+	right: 40px;
+}
+
+.player > div {
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	background-color: white;
+}
+
+.idle {
 	background-image: url(positionDefault.gif);
 }
 
@@ -87,6 +108,10 @@ body {
 
 .throwDown {
 	background-image: url(positionDown.gif);
+}
+
+.current {
+	background-color: green;
 }
 
 #buttonDisplay {

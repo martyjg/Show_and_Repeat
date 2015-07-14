@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 	firstChain = [];
 	secondChain = [];
-	moveCount = 10;
+	moveCount = 3;
 	turn = 0;
 	playerTurn = 0;
 	player1Score = 0;
@@ -74,6 +74,12 @@ $(document).ready(function () {
 			displayMoveChain(secondChain);
 		}
 	})
+
+	processInput = function(player, move) {
+		$(player).attr("class", move);
+	}
+
+	inputChain = function()
 
 
 	chainBuilder = function(chain) {
