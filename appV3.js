@@ -1,5 +1,8 @@
 var game = function() {
 
+$('#p1ScoreIncrease').hide();
+$('#p2ScoreIncrease').hide();
+
 //div surrounding character
 var player1Container = $("#player1");
 var player2Container = $("#player2");
@@ -33,7 +36,9 @@ var playing = true;
 //keeps track of no. of turns switched
 var switchedTurns = 0;
 
-$("#messageBox").html(currentPlayer + ", what you got?")
+if (player1Score === 0 && player2Score === 0) {
+$("#message").html(currentPlayer + ", what you got?");
+}
 
 //changes dancing animation according to current player when buttons are pushede
 function throwMove(move) {
@@ -79,14 +84,13 @@ function throwMove(move) {
 
 
 	function displayMoves() {
-		debugger
 		console.log("the current player is " + currentPlayer);
 		if (currentPlayer === "player1") {
-		$("#messageBox").html("player2, check it out");
-	} 
+			$("#message").html("player2, check it out").delay(2000).fadeOut('slow');
+		} 
 		else {
-		$("#messageBox").html("player1, check it out");
-	}
+			$("#message").show().html("player1, check it out").delay(2000).fadeOut('slow');
+		}
 
 		currentChain.forEach(function(element, index) {
 			setTimeout(function(){
@@ -96,7 +100,7 @@ function throwMove(move) {
 				if (index === currentChain.length - 1) {
 					switchPlayers();
 				}
-			}, 1000 * (index+1));
+			}, 1200 * (index+1));
 		});
 	}
 
@@ -112,7 +116,7 @@ function throwMove(move) {
 			moveCounter++
 			switchedTurns = 0;
 			matchedMoves = 0; 
-			$("#messageBox").html(currentPlayer + " nailed it. Step it up.")
+			$("#message").show().html(currentPlayer + " nailed it. Step it up.")
 			if (currentPlayer === 'player1') {
 				player2Chain = [];
 			} else {
@@ -120,9 +124,14 @@ function throwMove(move) {
 			}
 		} else {
 			matchedMoves = 0;
+			debugger;
 			if (currentPlayer === 'player1') {
+				$("#p2ScoreIncrease").show().fadeOut(1500);
+				$("#message").show().html("player1, you suck. 1 point for player2.").delay(2000);
 				player2Score++;
 			} else { 
+				$("#p1ScoreIncrease").show().fadeOut(1500);
+				$("#message").show().html("player2, you suck. 1 point for player1.").delay(2000);
 				player1Score++;
 			}
 			$("#p1Score").html(player1Score);
@@ -133,7 +142,6 @@ function throwMove(move) {
 
 
 	function resetGame() {
-
 		moveCounter = 3; 
 
 		player1Chain = [];
@@ -164,6 +172,7 @@ function throwMove(move) {
 			currentChain = player1Chain;
 		}
 		switchedTurns++;
+		$("#message").show().html(currentPlayer + ", what you got?");
 	}
 
 
