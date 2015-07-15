@@ -6,23 +6,15 @@ var game = function() {
 //div surrounding character
 var player1Container = $("#player1");
 var player2Container = $("#player2");
-
 //character model
 var player1Dancer = $("#player1 > div");
 var player2Dancer = $("#player2 > div");
-
-//player currently in play
 var currentPlayer = 'player1';
 player1Container.addClass('currentPlayer')
 var moveCounter = 3; 
-
-
-
 var player1Chain = [];
 var player2Chain = [];
-
 var matchedMoves = 0;
-
 var player1Score = 0;
 var player2Score = 0;
 $("#p1Score").html(player1Score);
@@ -30,10 +22,8 @@ $("#p2Score").html(player2Score);
 
 //chain about to be displayed
 var currentChain = player1Chain;
-
 //allows for pause during movesDisplay
 var playing = true;
-
 //keeps track of no. of turns switched
 var switchedTurns = 0;
 

@@ -122,17 +122,17 @@ h1 {
 #player1 {
 	top: 65px;
 	left: 40px;
-	    color: #f00;
-	    -webkit-filter: invert(100%);
-	    filter: invert(100%);
+	color: #f00;
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
 }
 
 #player2 {
 	top: 65px;
 	right: 40px;
-	    color: #f00;
-	    -webkit-filter: invert(100%);
-	    filter: invert(100%);
+	color: #f00;
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
 }
 
 .player > div {
