@@ -1,6 +1,5 @@
 var game = function() {
 
-
 	$('#p1ScoreIncrease').hide();
 	$('#p2ScoreIncrease').hide();
 
@@ -15,7 +14,7 @@ var player2Dancer = $("#player2 > div");
 //player currently in play
 var currentPlayer = 'player1';
 player1Container.addClass('currentPlayer')
-var moveCounter = 32; 
+var moveCounter = 3; 
 
 
 
@@ -133,7 +132,7 @@ function throwMove(move) {
 				if (index === currentChain.length - 1) {
 					switchPlayers();
 				}
-			}, 500 * (index+1));
+			}, 1000 * (index+1));
 		});
 	}
 
