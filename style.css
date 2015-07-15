@@ -116,17 +116,23 @@ h1 {
 }
 
 .currentPlayer {
-	border: 10px solid pink;
+	border: 10px solid #003F34;
 }
 
 #player1 {
 	top: 65px;
 	left: 40px;
+	    color: #f00;
+	    -webkit-filter: invert(100%);
+	    filter: invert(100%);
 }
 
 #player2 {
 	top: 65px;
 	right: 40px;
+	    color: #f00;
+	    -webkit-filter: invert(100%);
+	    filter: invert(100%);
 }
 
 .player > div {
